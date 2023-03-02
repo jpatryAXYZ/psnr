@@ -1,0 +1,11 @@
+name: {project name}
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip=22.3
+  - flake8=6.0
+  - isort=5.9
+  - autopep8=1.6
+  - ipython=8.10
+  - ipykernel=6.19
