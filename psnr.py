@@ -5,8 +5,7 @@ from skimage.metrics import peak_signal_noise_ratio
 from tabulate import tabulate
 
 # black and white ramp [0,256]
-uint8_ramp = np.linspace(0, 255, num=256*256).reshape(256, 256).astype(np.uint8)
-
+uint8_ramp = np.linspace(0, 255, num=256 * 256).reshape(256, 256).astype(np.uint8)
 
 noisy_ramp8 = uint8_ramp.copy()
 noisy_ramp8[0, 0] = 1
@@ -24,7 +23,6 @@ float32_ramp = (uint8_ramp / 255.).astype(np.float32)
 noisy_float32 = float32_ramp.copy()
 noisy_float32[0, 0] = 1 / 255.
 
-
 fig1 = plt.figure()
 plt.imshow(float32_ramp, cmap='gray', vmin=0, vmax=1)
 fig1.suptitle('float32 image', fontsize=20)
@@ -35,7 +33,7 @@ print(f'im min value:{np.amin(float32_ramp)}, im max value:{np.amax(float32_ramp
 print(f'float32 image PSNR : {compute_psnr:.2f} dB')
 
 # black and white ramp [0,256]
-uint16_ramp = np.linspace(0, 65535, num=256*256).reshape(256, 256).astype(np.uint16)
+uint16_ramp = np.linspace(0, 65535, num=256 * 256).reshape(256, 256).astype(np.uint16)
 noisy_ramp16 = uint16_ramp.copy()
 noisy_ramp16[0, 0] = 1
 fig2 = plt.figure()
@@ -44,7 +42,6 @@ fig2.suptitle('uint16 image', fontsize=20)
 plt.show()
 
 compute_psnr = peak_signal_noise_ratio(uint16_ramp, noisy_ramp16)
-
 
 print(f'im min value:{np.amin(uint16_ramp)}, im max value:{np.amax(uint16_ramp)}, im mean value:{np.mean(uint16_ramp)}')
 print(f'16 bit images PSNR : {compute_psnr:.2f} dB')
