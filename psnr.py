@@ -2,7 +2,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from skimage.metrics import peak_signal_noise_ratio
-from tabulate import tabulate
 
 # black and white ramp [0,256]
 uint8_ramp = np.linspace(0, 255, num=256 * 256).reshape(256, 256).astype(np.uint8)
